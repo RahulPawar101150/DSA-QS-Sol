@@ -1,0 +1,22 @@
+QS 2)Best Time to Buy and Sell Stock
+
+
+class Solution {
+    public int maxProfit(int[] prices) {
+
+        int buyPrice= Integer.MAX_VALUE;                 // set the variable for buy price
+        int maxProfit= 0;                               //  anothr variable for max profit of stock 
+
+        for(int i= 0; i<prices.length; i++){
+            if(prices[i]>buyPrice){                    // if buy price is less than the current price then calculate profit 
+                int profit= prices[i]- buyPrice;
+                maxProfit= Math.max(profit, maxProfit); //  choose the max profit based on the day wise profit
+            }
+            else{
+                buyPrice = prices[i];                   // if current price is less than the buy price then keep as a  buy price 
+            }
+        }
+        return maxProfit;                      // return the max profit 
+        
+    }
+}
